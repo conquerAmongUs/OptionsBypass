@@ -1,0 +1,219 @@
+/* Общий стиль страницы */
+:root {
+	--basedark: #474747;
+	--baselight: #b7b7b7;
+	--baseslice: #555555;
+	--crewdark: #3C8BA9;
+	--crewlight: #7BCDEC;
+	--crewslice: #1287B2;
+	--impdark: #7A2D2C;
+	--implight: #CB5354;
+	--impslice: #881616;
+}
+* {
+  -webkit-tap-highlight-color: transparent; /* Убирает синий фон */
+  -webkit-touch-callout: none;              /* Отключает меню при долгом тапе */
+  -webkit-user-select: none;                /* Отключает выделение текста */
+  user-select: none;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1a1a20;
+    color: var(--baselight);
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+}
+
+/* Кнопки режима */
+.mode-switch {
+    margin-bottom: 20px;
+}
+
+.mode-switch button {
+    width: 100px;
+    flex: 1;
+    padding: 10px;
+    background-color: #1a1a20;
+    border: 2px solid var(--implight);
+    color: var(--implight);
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 11px;
+}
+
+/* 1. Стиль для кнопок при наведении (только если они НЕ активны) */
+.mode-switch button:hover:not(.active) {
+    border-color: var(--crewlight); /* Можно добавить подсветку рамки */
+	color: var(--crewlight);
+}
+
+/* 2. Стиль для активной кнопки (она остается такой всегда) */
+.mode-switch .active {
+    background-color: var(--crewlight);
+    color: var(--crewdark);
+    border-color: var(--crewlight);
+    cursor: default; /* Убираем "палец", так как кнопка уже нажата */
+}
+
+/* 3. Чтобы при наведении на активную она не дергалась и не менялась */
+.mode-switch .active:hover {
+    background-color: var(--crewlight); /* Оставляем тот же цвет */
+    color: var(--crewdark);
+}
+
+
+.copy-paste button {
+    background-color: var(--basedark);
+    color: var(--baselight);
+	margin-bottom: 10px;
+}
+.copy-paste p {
+	margin-bottom: 2px;
+}
+/* Поле Base64 */
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    height: 80px;
+    background-color: var(--basedark);
+    border: 1px solid var(--baselight);
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+    resize: none;
+}
+
+.control-item {
+    display: flex;	/* Включаем гибкий контейнер */
+	height: 29px;
+    align-items: center;       /* Выравниваем всё по вертикали */
+    justify-content: space-between; /* Расталкиваем элементы по краям */
+    background: linear-gradient(
+        135deg,                 /* угол диагонали */
+        var(--basedark) 50%,            /* первый цвет */
+        var(--baseslice) 50%             /* второй цвет */
+    );       /* Темный фон */
+    padding: 10px 15px;        /* Внутренние отступы */
+    color: #eee;               /* Цвет текста */
+    font-family: sans-serif;
+    margin-bottom: 10px;
+    gap: 15px;                 /* Расстояние между элементами */
+}
+.control-itemCREW {
+    display: flex;             /* Включаем гибкий контейнер */
+	height: 29px;
+    align-items: center;       /* Выравниваем всё по вертикали */
+    justify-content: space-between; /* Расталкиваем элементы по краям */
+    background: linear-gradient(
+        135deg,                 /* угол диагонали */
+        var(--crewlight) 50%,            /* первый цвет */
+        var(--crewslice) 50%             /* второй цвет */
+    );       /* Темный фон */
+    padding: 10px 15px;        /* Внутренние отступы */
+    color: #eee;               /* Цвет текста */
+    font-family: sans-serif;
+    margin-bottom: 10px;
+    gap: 15px;                 /* Расстояние между элементами */
+}
+.control-itemIMP {
+    display: flex;             /* Включаем гибкий контейнер */
+	height: 29px;
+    align-items: center;       /* Выравниваем всё по вертикали */
+    justify-content: space-between; /* Расталкиваем элементы по краям */
+    background: linear-gradient(
+        135deg,                 /* угол диагонали */
+        var(--implight) 50%,            /* первый цвет */
+        var(--impslice) 50%             /* второй цвет */
+    );       /* Темный фон */
+    padding: 10px 15px;        /* Внутренние отступы */
+    color: #eee;               /* Цвет текста */
+    font-family: sans-serif;
+    margin-bottom: 10px;
+    gap: 15px;                 /* Расстояние между элементами */
+}
+
+.label-type {
+    color: var(--baselight);               /* Второстепенный текст побледнее */
+    font-size: 0.8em;
+}
+.label-typeCREW {
+    color: var(--crewdark);               /* Второстепенный текст побледнее */
+    font-size: 0.8em;
+}
+.label-typeIMP {
+    color: var(--impdark);               /* Второстепенный текст побледнее */
+    font-size: 0.8em;
+}
+
+.label-name {
+    flex-grow: 1;              /* Название займет всё свободное место */
+    font-weight: bold;
+    color: var(--baselight);
+}
+.label-nameCREW {
+    flex-grow: 1;              /* Название займет всё свободное место */
+    font-weight: bold;
+    color: var(--crewdark);
+}
+.label-nameIMP {
+    flex-grow: 1;              /* Название займет всё свободное место */
+    font-weight: bold;
+    color: var(--impdark);
+}
+.input {
+    background: #1a1a20;
+    border: 2px solid var(--baselight);
+    color: #fff;
+    padding: 5px;
+    width: 60px;
+}
+.inputCREW {
+    background: #1a1a20;
+    border: 2px solid var(--crewdark);
+    color: #fff;
+    padding: 5px;
+    width: 60px;
+}
+.inputIMP {
+    background: #1a1a20;
+    border: 2px solid var(--impdark);
+    color: #fff;
+    padding: 5px;
+    width: 60px;
+}
+@media (max-width: 600px) {
+    .copy-text {
+        flex-basis: 100%;
+    }
+}
+@media (max-width: 828px) {
+	.label-name {
+		font-size: 0.9em;
+	}
+    .control-item {
+        background: var(--basedark); /* один цвет */
+    }
+}
+@media (max-width: 828px) {
+	.label-nameCREW {
+		font-size: 0.9em;
+	}
+    .control-itemCREW {
+        background: var(--crewlight); /* один цвет */
+    }
+}
+@media (max-width: 828px) {
+	.label-nameIMP {
+		font-size: 0.9em;
+	}
+    .control-itemIMP {
+        background: var(--implight); /* один цвет */
+    }
+}
+/* Применяется к инпутам и textarea при фокусе */
+input:focus, textarea:focus {
+    outline: none; /* Убирает стандартную обводку браузера */
+}
